@@ -1,7 +1,14 @@
 import React from 'react'
 import { useSpring } from 'react-spring'
 import { Icon } from '../../shared/Icon'
-import { Container, TextContainer, Image, OrganicShape, IconContainer } from './Home.styled'
+import {
+   Container,
+   InnerContainer,
+   TextContainer,
+   Image,
+   OrganicShape,
+   IconContainer,
+} from './Home.styled'
 
 const Home: React.FC = () => {
    const style = useSpring({
@@ -12,17 +19,19 @@ const Home: React.FC = () => {
 
    return (
       <Container>
-         <TextContainer>
-            <h2>Tobias</h2>
-            <h2>Fischer</h2>
-            <p>FRONTEND DEVELOPER</p>
-         </TextContainer>
-         <Image src="https://firebasestorage.googleapis.com/v0/b/portolfio.appspot.com/o/PXL_20220311_173105326.jpg?alt=media&token=2a3418a1-977a-4ff4-ac1e-a424ccae3af7" />
+         <InnerContainer>
+            <TextContainer>
+               <h2>Tobias</h2>
+               <h2>Fischer</h2>
+               <p>FRONTEND DEVELOPER</p>
+            </TextContainer>
+            <Image src="https://firebasestorage.googleapis.com/v0/b/portolfio.appspot.com/o/IMG_8275-min.jpg?alt=media&token=007572f8-9c74-40a1-a12f-ded3c19929a7" />
+            <IconContainer style={style}>
+               <p>SEE MORE</p>
+               <Icon icon="south" size="25px" color="#f3f4f6" />
+            </IconContainer>
+         </InnerContainer>
          <OrganicShape />
-         <IconContainer style={style}>
-            <p>SEE MORE</p>
-            <Icon icon="south" size="25px" />
-         </IconContainer>
       </Container>
    )
 }

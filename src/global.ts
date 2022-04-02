@@ -7,11 +7,11 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
 html,
 body {
-  background-color: #e3e2de;
+  background-color: #262626;
   font-size: 14px;
   -webkit-font-smoothing: antialiased; 
 
-  color: #2c211a;
+  color: #f3f4f6;
   margin: 0;
   overflow: hidden;
 }
@@ -43,7 +43,7 @@ p {
 h2 {
   font-weight: 600;
   font-size: 20px;
-  color: #c31c3f;
+  color: #dc2626;
 }
 
 p {

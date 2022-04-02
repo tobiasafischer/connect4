@@ -11,15 +11,22 @@ export const Container = styled.div`
       z-index: 1;
    }
 `
+
+export const InnerContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   height: 50%;
+   width: 100%;
+`
+
 export const TextContainer = styled.div`
    display: flex;
    align-items: flex-start;
    flex-direction: column;
-   position: absolute;
    text-align: left;
    width: 100%;
-   left: 10%;
-   top: 25%;
+   margin-left: 10%;
    h2 {
       font-size: 9rem;
       margin-left: -2px;
@@ -34,11 +41,10 @@ export const TextContainer = styled.div`
 `
 
 export const Image = styled.img`
-   border-radius: 20px;
+   border-radius: 15%;
    box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.3);
-   position: absolute;
-   right: 15%;
-   height: 60%;
+   margin-right: 15%;
+   height: 100%;
 `
 
 export const OrganicShape = styled.div`
@@ -48,7 +54,7 @@ export const OrganicShape = styled.div`
    width: 50%;
    height: 85%;
    right: 5%;
-   background: #c31c3f;
+   background: #dc2626;
    border-radius: 41% 59% 41% 59% / 43% 45% 55% 57%;
    animation-name: organic;
    animation-duration: 30s;
@@ -79,6 +85,9 @@ export const IconContainer = styled(animated.div)`
    position: absolute;
    bottom: 35px;
    cursor: pointer;
+   p {
+      font-weight: 600;
+   }
    &:hover {
       transform: translateY(3px);
    }
