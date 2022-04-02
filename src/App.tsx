@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
+import { BrowserRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import { Home } from './components/routes'
-import { AboutMe } from './components/routes/AboutMe'
+import { Home, AboutMe, Projects } from './components/routes'
 import { TopBar } from './components/routing/components/TopBar'
 import GlobalStyle from './global'
 
@@ -44,6 +44,11 @@ function App() {
                <div className="section">
                   <InnerContainer>
                      <AboutMe />
+                  </InnerContainer>
+               </div>
+               <div className="section">
+                  <InnerContainer>
+                     <Projects />
                   </InnerContainer>
                </div>
                <GlobalStyle />

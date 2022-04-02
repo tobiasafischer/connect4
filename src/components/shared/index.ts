@@ -1,1 +1,3 @@
-export * from './Icon/Icon'
+export * from './Icon'
+export * from './Card'
+export * from './Logo'
