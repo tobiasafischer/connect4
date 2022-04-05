@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-import { TopBar } from './components/TopBar'
+import { TopBar } from '../routes/TopBar'
 
 const Container = styled.div`
    display: flex;

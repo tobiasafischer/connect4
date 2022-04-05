@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
-import { BrowserRouter } from 'react-router-dom'
 import styled from 'styled-components'
-import { Home, AboutMe, Projects } from './components/routes'
-import { TopBar } from './components/routing/components/TopBar'
+import { Home, AboutMe, Projects, Contact, TopBar } from './components/routes'
 import GlobalStyle from './global'
 
 const InnerContainer = styled.div`
@@ -33,7 +31,7 @@ function App() {
          sectionsColor={[]}
          cards={false}
          cardsOptions={{ perspective: 1, fadeContent: false, fadeBackground: false }}
-         render={({ state, fullpageApi }) => (
+         render={() => (
             <Container>
                <TopBar />
                <div className="section">
@@ -49,6 +47,11 @@ function App() {
                <div className="section">
                   <InnerContainer>
                      <Projects />
+                  </InnerContainer>
+               </div>
+               <div className="section">
+                  <InnerContainer>
+                     <Contact />
                   </InnerContainer>
                </div>
                <GlobalStyle />
