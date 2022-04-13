@@ -18,6 +18,11 @@ export const InnerContainer = styled.div`
    align-items: flex-start;
    height: 50%;
    width: 100%;
+   @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 75px;
+   }
 `
 
 export const TextContainer = styled.div`
@@ -38,6 +43,23 @@ export const TextContainer = styled.div`
       font-weight: 400;
       font-size: 4rem;
    }
+
+   @media screen and (max-width: 768px) {
+      align-items: center;
+      width: auto;
+      margin-left: 0%;
+      h2 {
+         font-size: 4.5rem;
+         margin-left: -2px;
+      }
+      & > h2:first-child {
+         margin: 0;
+      }
+      p {
+         font-weight: 400;
+         font-size: 2rem;
+      }
+   }
 `
 
 export const Image = styled.img`
@@ -45,6 +67,10 @@ export const Image = styled.img`
    box-shadow: 5px 5px 20px rgb(0, 0, 0, 0.3);
    margin-right: 15%;
    height: 100%;
+   @media screen and (max-width: 768px) {
+      height: 50%;
+      margin-right: 0;
+   }
 `
 
 export const OrganicShape = styled.div`
@@ -73,6 +99,13 @@ export const OrganicShape = styled.div`
       100% {
          border-radius: 41% 59% 41% 59% / 43% 45% 55% 57%;
       }
+   }
+
+   @media screen and (max-width: 768px) {
+      margin-top: 50%;
+      height: 35%;
+      width: 70%;
+      right: 10%;
    }
 `
 

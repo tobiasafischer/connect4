@@ -51,6 +51,8 @@ p {
 }
 
 a {
+  color: #f3f4f6;
+  font-size: 20px;
   text-decoration: none;
   &:hover {
     text-decoration: underline;

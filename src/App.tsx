@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
 import styled from 'styled-components'
-import { Home, AboutMe, Projects, Contact, TopBar } from './components/routes'
+import { Home, AboutMe, Projects, Contact } from './components/routes'
 import GlobalStyle from './global'
+import { useMediaQuery } from './hooks'
 
 const InnerContainer = styled.div`
    display: flex;
@@ -23,6 +24,7 @@ const Container = styled.div`
    height: 100%;
 `
 function App() {
+   const { isMobile } = useMediaQuery()
    return (
       <ReactFullpage
          licenseKey=""
@@ -33,7 +35,6 @@ function App() {
          cardsOptions={{ perspective: 1, fadeContent: false, fadeBackground: false }}
          render={() => (
             <Container>
-               <TopBar />
                <div className="section">
                   <InnerContainer>
                      <Home />
@@ -45,9 +46,7 @@ function App() {
                   </InnerContainer>
                </div>
                <div className="section">
-                  <InnerContainer>
-                     <Projects />
-                  </InnerContainer>
+                  <InnerContainer>{isMobile ? <>mobile</> : <Projects />}</InnerContainer>
                </div>
                <div className="section">
                   <InnerContainer>

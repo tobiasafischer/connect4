@@ -1,228 +1,69 @@
-/* eslint-disable camelcase */
-// @ts-nocheck
 import React from 'react'
-import emailjs from 'emailjs-com'
-import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
-import { Icon } from '../../shared'
-import Resume from './tobias_fischer_resume.pdf'
 
 const Container = styled.div`
    display: flex;
    justify-content: center;
-   align-items: center;
-   width: 70%;
-   height: 90%;
-`
-
-const InnerContainer = styled.div`
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
+   align-items: flex-start;
    flex-direction: column;
-   width: 100%;
+   gap: 75px;
    height: 100%;
 `
-
-const ContactInfoContainer = styled(InnerContainer)`
-   justify-content: flex-start;
-   align-items: flex-start;
-   gap: 5px;
-   height: 25%;
-`
-
-const Title = styled.div`
+const ContactLine = styled.div`
    display: flex;
-   flex-direction: column;
-   position: relative;
-   color: #dc2626;
-   font-size: 36px;
-   margin-bottom: 5px;
-
-   &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-      width: 25px;
-      height: 4px;
-      background: #dc2626;
-   }
-`
-
-const ContactInfo = styled.div`
-   margin-top: auto;
-   font-size: 16px;
-   color: #888;
-`
-
-const Input = styled.input`
-   font-weight: 700;
-   letter-spacing: 1.4px;
-   width: 100%;
-   padding: 10px 0;
-   background: none;
-   border: none;
-   border-bottom: 1px solid #d1d5db;
-   color: #ddd;
-   font-size: 16px;
-   text-transform: uppercase;
-   outline: none;
-   transition: border-color 0.2s;
-
-   &:focus {
-      border-bottom-coloxr: #ddd;
-   }
-
-   &::placeholder {
-      color: #d1d5db;
-   }
-`
-
-const Form = styled.form`
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   gap: 24px;
-   height: 85%;
-   width: 85%;
-`
-
-const Button = styled.button`
-   background: none;
-   border: none;
-   color: #dc2626;
-   font-size: 16px;
-   cursor: pointer;
-   outline: none;
-   &:hover {
-      color: #b91c1c;
-   }
-`
-
-const ButtonContainer = styled.div`
-   display: flex;
-   justify-content: flex-end;
    align-items: center;
    gap: 24px;
-   width: 100%;
-`
-
-const SocialMedia = styled.div`
-   margin-top: 2vh;
-   display: flex;
-   align-items: center;
-   a:link,
-   a:visited {
-      margin-left: 0.5vw;
+   a {
+      font-size: 24px;
+      font-weight: 500;
       text-decoration: none;
-      color: #dc2626;
       cursor: pointer;
    }
-   a:hover {
-      color: #b91c1c;
+   svg {
+      height: 30px;
+   }
+   @media screen and (min-width: 768px) {
+      svg {
+         height: 60px;
+      }
+      a {
+         font-size: 40px;
+      }
    }
 `
 
-const Contact = () => {
-   const {
-      reset,
-      register,
-      handleSubmit,
-      formState: { errors },
-   } = useForm()
-
-   const handleReset = () => {
-      reset(
-         {
-            from_name: '',
-            subject: '',
-            message: '',
-         },
-         {
-            keepErrors: false,
-            keepIsValid: true,
-         },
-      )
-   }
-
-   const onSubmit = ({ subject, from_name, message }) => {
-      const templateParams = {
-         from_name,
-         to_name: 'tobias.alan.fischer@gmail.com',
-         subject,
-         message,
-      }
-
-      emailjs.send(
-         process.env.REACT_APP_EMAIL_SERVICE_ID,
-         process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-         templateParams,
-         process.env.REACT_APP_EMAIL_USER_ID,
-      )
-      handleReset()
-   }
-
-   return (
-      <Container>
-         <ContactInfoContainer>
-            <Title>
-               <span>CONTACT ME</span>
-            </Title>
-            <SocialMedia>
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                     fill="#d1d5db"
-                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                  />
-               </svg>
-               <a href="https://www.linkedin.com/in/tobiasafischer/">tobiasafischer</a>
-            </SocialMedia>
-            <SocialMedia>
-               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                     fill="#d1d5db"
-                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                  />
-               </svg>
-               <a href="https://github.com/tobiasafischer">tobiasafischer</a>
-            </SocialMedia>
-            <SocialMedia>
-               <Icon icon="file_download" color="#d1d5db" />
-               <a href={Resume} download="tobias_fischer_resume">
-                  resume
-               </a>
-            </SocialMedia>
-            <ContactInfo>CONTACT INFO : (503) 413-9265</ContactInfo>
-         </ContactInfoContainer>
-         <InnerContainer>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-               <Input
-                  type="email"
-                  placeholder="EMAIL"
-                  {...register('from_name', {
-                     required: 'required',
-                     pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'invalid email address',
-                     },
-                  })}
+const Contact: React.FC = () => (
+   <Container>
+      <ContactLine>
+         <svg viewBox="0 0 128 128">
+            <g fill="#f3f4f6">
+               <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"
                />
-               {errors.from_name && errors.from_name.message}
-               <Input {...register('subject', { required: true })} placeholder="SUBJECT" />
-               {errors.subject && <p>Required</p>}
-               <Input {...register('message', { required: true })} placeholder="MESSAGE" />
-               {errors.message && <p>Required</p>}
-               <ButtonContainer>
-                  <Button onClick={handleReset}>CANCEL</Button>
-                  <Button type="submit">SEND</Button>
-               </ButtonContainer>
-            </Form>
-         </InnerContainer>
-      </Container>
-   )
-}
+               <path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0" />
+            </g>
+         </svg>
+         <a href="https://github.com/tobiasafischer">github.com/tobiasafischer</a>
+      </ContactLine>
+      <ContactLine>
+         <svg viewBox="0 0 128 128">
+            <path
+               fill="#f3f4f6"
+               d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3zM39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1110.49-10.5 10.5 10.5 0 01-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z"
+            />
+         </svg>
+         <a href="https://www.linkedin.com/in/tobiasafischer/">linkedin.com/in/tobiasafischer</a>
+      </ContactLine>
+      <ContactLine>
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#f3f4f6">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z" />
+         </svg>
+         <a href="tobias.alan.fischer@gmail.com">tobias.alan.fischer@gmail.com</a>
+      </ContactLine>
+   </Container>
+)
 
 export default Contact
