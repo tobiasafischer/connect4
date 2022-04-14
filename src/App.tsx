@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
 import styled from 'styled-components'
-import { Home, AboutMe, Projects, Contact } from './components/routes'
+import { Home, AboutMe, Projects, Contact, MobileProjects } from './components/routes'
 import GlobalStyle from './global'
 import { useMediaQuery } from './hooks'
 
@@ -46,7 +46,7 @@ function App() {
                   </InnerContainer>
                </div>
                <div className="section">
-                  <InnerContainer>{isMobile ? <>mobile</> : <Projects />}</InnerContainer>
+                  <InnerContainer>{isMobile ? <MobileProjects /> : <Projects />}</InnerContainer>
                </div>
                <div className="section">
                   <InnerContainer>
