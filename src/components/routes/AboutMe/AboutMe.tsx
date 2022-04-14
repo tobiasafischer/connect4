@@ -7,8 +7,7 @@ const AboutMe: React.FC = () => (
       <TextContainer>
          <h2>Who am I?</h2>
          <p>
-            I am a <span>growth-oriented</span> front-end developer with <span>1 year</span>{' '}
-            professional experience working as the primary front-end developer for a project
+            I am a <span>growth-oriented</span> front-end developer currently working for a project
             consisting of a user-base exceeding <span>25,000</span>.
          </p>
          <p>

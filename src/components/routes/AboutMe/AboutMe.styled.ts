@@ -6,6 +6,11 @@ export const Container = styled.div`
    align-items: center;
    width: 100%;
    height: 100%;
+   @media screen and (min-width: 768px) {
+      justify-content: space-between;
+      padding: 30px 100px;
+      gap: 30px;
+   }
 `
 
 export const TextContainer = styled.div`
@@ -33,6 +38,8 @@ export const TextContainer = styled.div`
    }
 
    @media screen and (min-width: 768px) {
+      width: 100%;
+      margin-left: 0%;
       h2 {
          font-size: 9rem;
          margin-left: -2px;
@@ -66,7 +73,7 @@ export const IconContainer = styled.div`
 
 export const Language = styled.div`
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    align-items: center;
    width: 100%;
    svg {
@@ -74,7 +81,10 @@ export const Language = styled.div`
    }
    gap: 20px;
    height: 10%;
+   margin-bottom: 20px;
    @media screen and (max-width: 768px) {
+      margin-bottom: 0;
+      justify-content: center;
       svg {
          height: 50px;
       }
