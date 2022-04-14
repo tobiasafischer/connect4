@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import ReactFullpage from '@fullpage/react-fullpage'
 import styled from 'styled-components'
@@ -10,10 +11,12 @@ const InnerContainer = styled.div`
    justify-content: center;
    align-items: flex-start;
    position: relative;
-   height: 100vh;
+   height: 80vh;
+
    width: 100vw;
    @media screen and (min-width: 768px) {
       align-items: center;
+      height: 100vh;
    }
 `
 const Container = styled.div`
@@ -25,6 +28,7 @@ const Container = styled.div`
 `
 function App() {
    const { isMobile } = useMediaQuery()
+
    return (
       <ReactFullpage
          licenseKey=""

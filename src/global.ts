@@ -20,6 +20,8 @@ body {
 
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  height: 100%;
+
 }
 
 html {
