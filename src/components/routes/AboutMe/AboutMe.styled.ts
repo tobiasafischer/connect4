@@ -16,7 +16,7 @@ export const TextContainer = styled.div`
    width: 40%;
    margin-left: 10%;
    h2 {
-      font-size: 4rem;
+      font-size: 2.5rem;
       margin-left: -2px;
    }
    & > h2:first-child {
@@ -24,8 +24,8 @@ export const TextContainer = styled.div`
    }
    p {
       font-weight: 400;
-      font-size: 1.5rem;
-      line-height: 30px;
+      font-size: 1rem;
+      line-height: 25px;
       margin-top: 10px;
       span {
          color: #ef4444;
