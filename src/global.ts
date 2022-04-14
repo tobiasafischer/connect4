@@ -14,6 +14,12 @@ body {
   color: #f3f4f6;
   margin: 0;
   overflow: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 html {
