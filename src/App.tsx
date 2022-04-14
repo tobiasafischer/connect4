@@ -14,7 +14,6 @@ const InnerContainer = styled.div`
    width: 100vw;
    @media screen and (min-width: 768px) {
       align-items: center;
-      height: calc(10px + (100vh - 100%));
    }
 `
 const Container = styled.div`
