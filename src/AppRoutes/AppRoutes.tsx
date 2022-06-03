@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { BoardProvider } from '../components/context'
 import { Board, ChoosePlayer, Welcome } from '../components/routes'
 import { ROUTES } from './routes'
 

@@ -12,5 +12,7 @@ export const Button = styled.button`
    border-radius: 4px;
    &:hover {
       color: rgba(51, 51, 51, 0.75);
+      transform: scale(1.02);
    }
+   transition: transform 0.1s ease-in-out;
 `

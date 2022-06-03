@@ -32,13 +32,10 @@ const Gameover: React.FC<Props> = ({ toggle }) => {
             <GameStatus>{message}</GameStatus>
          </TitleContainer>
          <ButtonContainer>
-            <Button style={{ width: '100%' }} onClick={handlePlayAgain}>
-               Play Again?
-            </Button>
-            <Button style={{ width: '100%' }} onClick={handleReturn}>
-               Return to title screen
-            </Button>
+            <Button onClick={handlePlayAgain}>Play Again?</Button>
+            <Button onClick={handleReturn}>Return to title screen</Button>
          </ButtonContainer>
+         <Button onClick={() => toggle()}>Hide Endscreen</Button>
       </Container>
    )
 }

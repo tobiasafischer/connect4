@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Button } from '../../shared'
 
 export const Container = styled.div`
    display: flex;
@@ -8,6 +9,13 @@ export const Container = styled.div`
    width: 100%;
    padding: 125px;
    border-radius: 4px;
+   & > ${Button} {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 16px;
+      padding: 15px 35px;
+   }
 `
 
 export const Title = styled.h1`
@@ -28,6 +36,9 @@ export const ButtonContainer = styled.div`
    flex-direction: column;
    gap: 20px;
    width: 100%;
+   ${Button} {
+      width: 100%;
+   }
 `
 
 export const TitleContainer = styled.div`

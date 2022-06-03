@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Button } from '../../shared'
 
 export const Container = styled.div`
    display: flex;
@@ -9,7 +8,7 @@ export const Container = styled.div`
    gap: 100px;
    width: 100%;
    height: 100%;
-   ${Button} {
+   button {
       width: 40%;
    }
 `

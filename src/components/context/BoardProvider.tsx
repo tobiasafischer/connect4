@@ -14,6 +14,8 @@ type BoardContextProps = {
    message: string
    choosePlayer: (playerNum: 1 | 2) => void
    reset: () => void
+   toggleInvalidMove: () => void
+   invalidMove: boolean
 }
 
 const BoardContext = React.createContext<BoardContextProps | undefined>(undefined)
@@ -63,6 +65,9 @@ const BoardProvider: React.FC = ({ children }) => {
    const [player, setPlayer] = useState(null)
    const [ai, setAi] = useState(null)
    const [moves, setMoves] = useState<number[]>([])
+   const [invalidMove, setInvalidMove] = useState(false)
+
+   const toggleInvalidMove = () => setInvalidMove((prev) => !prev)
 
    const reset = () => {
       dispatchBoardState({
@@ -101,7 +106,11 @@ const BoardProvider: React.FC = ({ children }) => {
          // if it reaches the end then that means that column is filled
          // so we dont want to register that turn
          // we could add an error message trigger here
-         if (colLen === BOARD_HEIGHT) return
+         if (colLen === BOARD_HEIGHT) {
+            toggleInvalidMove()
+            setTimeout(() => toggleInvalidMove(), 1000)
+            return
+         }
          setMoves((prev) => [...prev, col])
 
          // Check status of clonedBoard
@@ -165,6 +174,8 @@ const BoardProvider: React.FC = ({ children }) => {
       <BoardContext.Provider
          value={{
             reset,
+            invalidMove,
+            toggleInvalidMove,
             choosePlayer,
             play,
             player,

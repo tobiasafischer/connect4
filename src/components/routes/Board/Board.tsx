@@ -1,37 +1,42 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react'
 import { useBoard } from '../../context'
-import { Modal, Row, useModal } from '../../shared'
+import { Button, Modal, Row, useModal } from '../../shared'
 import { Gameover } from '../Gameover'
-
-const Container = styled.div`
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   height: 100%;
-   width: 100%;
-   position: relative;
-`
-const Title = styled.h1`
-   font-size: 72px;
-   color: #333;
-   position: absolute;
-   top: 75px;
-`
+import { Container, Title, Error, TitleContainer } from './Board.styled'
 
 const Board: React.FC = () => {
-   const { board, gameOver, player } = useBoard()
+   const { board, gameOver, player, invalidMove } = useBoard()
+   const [isError, setIsError] = useState(false)
    const { toggle, isModalVisible } = useModal()
 
    useEffect(() => {
       if (gameOver) toggle()
    }, [gameOver])
 
+   useEffect(() => {
+      if (invalidMove) {
+         setIsError(true)
+         setTimeout(() => setIsError(false), 200)
+      }
+   }, [invalidMove])
+
    return (
       <Container>
-         <Title>{`You are ${player === 1 ? 'Red' : 'Blue'}`}</Title>
-         <table>
+         <TitleContainer>
+            <span>
+               <Title>You are</Title>
+               <Title style={{ color: player === 1 ? '#ED3D3D' : '#6663FD' }}>
+                  {player === 1 ? 'Red' : 'Blue'}
+               </Title>
+            </span>
+            {invalidMove && <Error>Invalid Move</Error>}
+         </TitleContainer>
+         <table
+            style={{
+               transition: 'all 0.3s ease',
+               transform: isError ? 'scale(1.15) rotate(5deg)' : '',
+            }}
+         >
             <tbody>
                {board.map((row, i) => (
                   <Row key={i} row={row} />
@@ -43,6 +48,7 @@ const Board: React.FC = () => {
                <Gameover toggle={toggle} />
             </Modal>
          )}
+         {gameOver && !isModalVisible && <Button onClick={() => toggle()}>Show Endscreen</Button>}
       </Container>
    )
 }
