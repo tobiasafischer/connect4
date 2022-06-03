@@ -1,3 +1,2 @@
-export * from './Icon'
-export * from './Card'
-export * from './Logo'
+export * from './Board'
+export * from './Tile'

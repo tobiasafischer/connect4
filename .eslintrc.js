@@ -17,6 +17,8 @@ module.exports = {
    },
    plugins: ['react', '@typescript-eslint'],
    rules: {
+      'react/no-array-index-key': 'off',
+      'consistent-return': 'off',
       'semi-style': 'off',
       'no-nested-ternary': 'off',
       'import/prefer-default-export': 'off',

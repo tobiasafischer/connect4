@@ -1,0 +1,46 @@
+html,
+body {
+   background-color: #e8e6ea;
+   font-size: 14px;
+   -webkit-font-smoothing: antialiased;
+
+   color: #f3f4f6;
+   margin: 0;
+
+   height: 100%;
+   box-sizing: border-box;
+   width: 100%;
+}
+
+*,
+*:before,
+*:after {
+   box-sizing: inherit;
+   font-family: 'League Spartan', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+p {
+   margin: 0;
+   padding: 0;
+}
+
+h2 {
+   font-weight: 600;
+   font-size: 20px;
+   color: #dc2626;
+}
+
+p {
+   font-weight: 400;
+}
+
+button,
+a {
+   cursor: pointer;
+}
