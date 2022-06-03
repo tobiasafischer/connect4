@@ -6,8 +6,8 @@ const Cell = styled.td<{ player: 0 | 1 | 2 }>`
    background-color: ${({ player }) =>
       player === 0 ? 'white' : player === 1 ? '#ED3D3D' : '#6663FD'};
    border-radius: 50%;
-   height: 70px;
-   width: 70px;
+   height: 100px;
+   width: 100px;
    transition: background-color 0.5s;
 `
 

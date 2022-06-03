@@ -12,13 +12,13 @@ type BoardContextProps = {
    board: any[][]
    gameOver: boolean
    message: string
+   choosePlayer: (playerNum: 1 | 2) => void
+   reset: () => void
 }
 
 const BoardContext = React.createContext<BoardContextProps | undefined>(undefined)
 
 const initialBoard = {
-   player: 1,
-   ai: 2,
    currentTurn: 1,
    board: populate(),
    gameOver: false,
@@ -30,7 +30,7 @@ const boardReducer = (state: any, { type, clonedBoard, nextTurn, message }) => {
       case 'newGame':
          return {
             ...initialBoard,
-            clonedBoard,
+            board: clonedBoard,
          }
       case 'toggleTurn':
          return {
@@ -41,9 +41,9 @@ const boardReducer = (state: any, { type, clonedBoard, nextTurn, message }) => {
       case 'endGame':
          return {
             ...state,
+
             gameOver: true,
             message,
-            clonedBoard,
          }
       case 'updateMessage':
          return {
@@ -56,11 +56,28 @@ const boardReducer = (state: any, { type, clonedBoard, nextTurn, message }) => {
 }
 
 const BoardProvider: React.FC = ({ children }) => {
-   const [{ player, ai, currentTurn, board, gameOver, message }, dispatchBoardState] = useReducer(
+   const [{ currentTurn, board, gameOver, message }, dispatchBoardState] = useReducer(
       boardReducer,
       initialBoard,
    )
+   const [player, setPlayer] = useState(null)
+   const [ai, setAi] = useState(null)
    const [moves, setMoves] = useState<number[]>([])
+
+   const reset = () => {
+      dispatchBoardState({
+         type: 'newGame',
+         clonedBoard: populate(),
+      })
+      setPlayer(null)
+      setAi(null)
+      setMoves([])
+   }
+
+   const choosePlayer = (playerNum: 1 | 2) => {
+      setPlayer(playerNum)
+      setAi(playerNum === 1 ? 2 : 1)
+   }
 
    const play = (col: number) => {
       if (!gameOver) {
@@ -133,7 +150,7 @@ const BoardProvider: React.FC = ({ children }) => {
    }
 
    useEffect(async () => {
-      if (currentTurn === ai && moves.length > 0) {
+      if (currentTurn === ai) {
          const { data } = await axios.get(
             'https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production',
             {
@@ -142,11 +159,22 @@ const BoardProvider: React.FC = ({ children }) => {
          )
          play(data[data.length - 1])
       }
-   }, [currentTurn])
+   }, [currentTurn, ai])
 
    return (
       <BoardContext.Provider
-         value={{ play, player, ai, currentTurn, moves, board, gameOver, message }}
+         value={{
+            reset,
+            choosePlayer,
+            play,
+            player,
+            ai,
+            currentTurn,
+            moves,
+            board,
+            gameOver,
+            message,
+         }}
       >
          {children}
       </BoardContext.Provider>

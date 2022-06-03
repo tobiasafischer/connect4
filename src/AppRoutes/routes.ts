@@ -1,5 +1,5 @@
 export const ROUTES = {
-   welcome: '/welcome',
+   welcome: '/',
    choosePlayer: '/choose-player',
    board: '/board',
    winner: '/board/winner',

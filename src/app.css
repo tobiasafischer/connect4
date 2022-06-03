@@ -1,14 +1,14 @@
 html,
 body {
-   background-color: #e8e6ea;
    font-size: 14px;
-   -webkit-font-smoothing: antialiased;
+   background-color: #e8e6ea;
 
    color: #f3f4f6;
    margin: 0;
 
-   height: 100%;
    box-sizing: border-box;
+
+   height: 100%;
    width: 100%;
 }
 
