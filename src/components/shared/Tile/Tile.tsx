@@ -14,7 +14,9 @@ const Cell = styled.td<{ player: 0 | 1 | 2; hovered: boolean }>`
       height: 75px;
       width: 75px;
    }
-   ${({ hovered }) => hovered && 'transform: scale(1.05);'}
+   @media (min-width: 768px) {
+      ${({ hovered }) => hovered && 'transform: scale(1.05);'}
+   }
 `
 
 type Props = {
