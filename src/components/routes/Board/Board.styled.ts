@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const Title = styled.span`
    font-size: 72px;
    color: #333;
-   margin-right: 15px;
+   margin-right: 20px;
    text-align: center;
    @media (max-width: 768px) {
       font-size: 60px;

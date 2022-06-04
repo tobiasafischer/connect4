@@ -16,6 +16,9 @@ type BoardContextProps = {
    reset: () => void
    toggleInvalidMove: () => void
    invalidMove: boolean
+   hovered: number
+   handleMouseEnter: (colIndex: number) => void
+   handleMouseLeave: () => void
 }
 
 const BoardContext = React.createContext<BoardContextProps | undefined>(undefined)
@@ -66,6 +69,10 @@ const BoardProvider: React.FC = ({ children }) => {
    const [ai, setAi] = useState(null)
    const [moves, setMoves] = useState<number[]>([])
    const [invalidMove, setInvalidMove] = useState(false)
+   const [hovered, setHovered] = useState(null)
+
+   const handleMouseEnter = (colIndex: number) => setHovered(colIndex)
+   const handleMouseLeave = () => setHovered(null)
 
    const toggleInvalidMove = () => setInvalidMove((prev) => !prev)
 
@@ -185,6 +192,9 @@ const BoardProvider: React.FC = ({ children }) => {
             board,
             gameOver,
             message,
+            hovered,
+            handleMouseEnter,
+            handleMouseLeave,
          }}
       >
          {children}

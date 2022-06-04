@@ -8,8 +8,8 @@ type Props = {
 
 const TR = styled.tr`
    display: flex;
-   gap: 5px;
-   margin-bottom: 5px;
+   gap: 8px;
+   margin-bottom: 8px;
 `
 
 const Row: React.FC<Props> = ({ row }) => (
