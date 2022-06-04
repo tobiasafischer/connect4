@@ -20,11 +20,16 @@ export const Title = styled.span`
    font-size: 72px;
    color: #333;
    margin-right: 15px;
+   text-align: center;
+   @media (max-width: 768px) {
+      font-size: 60px;
+   }
 `
 
 export const Error = styled.h2`
    font-size: 24px;
    color: #ed3d3d;
+   font-weight: 400;
 `
 
 export const TitleContainer = styled.div`

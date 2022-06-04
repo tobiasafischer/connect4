@@ -16,18 +16,30 @@ export const Container = styled.div`
       font-size: 16px;
       padding: 15px 35px;
    }
+   @media (max-width: 768px) {
+      padding: 100px 40px;
+   }
 `
 
 export const Title = styled.h1`
    font-size: 84px;
    color: #333;
    font-weight: 500;
+   text-align: center;
+   @media (max-width: 768px) {
+      font-size: 60px;
+   }
 `
 
 export const GameStatus = styled.h2`
    font-size: 36px;
    color: #333;
    font-weight: 300;
+   text-align: center;
+   @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 30px;
+   }
 `
 
 export const ButtonContainer = styled.div`

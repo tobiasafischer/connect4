@@ -12,6 +12,9 @@ const Container = styled.div`
    width: 100vw;
    height: 100vh;
    padding: 50px;
+   @media (max-width: 768px) {
+      padding: 40px;
+   }
 `
 const App = () => (
    <Container>

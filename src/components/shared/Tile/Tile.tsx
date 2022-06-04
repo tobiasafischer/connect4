@@ -9,6 +9,10 @@ const Cell = styled.td<{ player: 0 | 1 | 2 }>`
    height: 100px;
    width: 100px;
    transition: background-color 0.5s;
+   @media (max-width: 768px) {
+      height: 75px;
+      width: 75px;
+   }
 `
 
 type Props = {
